@@ -60,9 +60,9 @@ A disciplina de **Dispositivos Móveis** tem como objetivo ensinar o desenvolvim
 ## 🎓 Desenvolvido para a disciplina de Dispositivos Móveis 
 ## Aula01 
 ### Exercício 1
-![Exercício 1](img/exercicio_1.jpeg)
+![Exercício 1](img/aula1_exercicio1.jpeg)
 ### Exercício 2
-![Exercício 2](img/exercicio_2.jpeg)
+![Exercício 2](img/aula1_exercicio2.jpeg)
 
 ---
 
