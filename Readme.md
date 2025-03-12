@@ -35,7 +35,7 @@ A disciplina de **Dispositivos Móveis** tem como objetivo ensinar o desenvolvim
 ## 📦 Como Executar o Projeto
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/seu-usuario/dispositivos-moveis-react-native.git
+   git clone https://github.com/EdilsonMaria/P5_Tecnologia_Dispositivos_Moveis
    ```
 2. Acesse o diretório do projeto:
    ```sh
@@ -64,6 +64,10 @@ A disciplina de **Dispositivos Móveis** tem como objetivo ensinar o desenvolvim
 ### Exercício 2 e 3
 ![Exercício 2 e 3](img/exercicio_2_3.jpeg)
 
+---
+
 ## Aula02 
+
+---
 
 ## Aula03
