@@ -1,7 +1,7 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
 
     const itens = [
         { id: '1', name: 'Curso de React Native', descripion: 'Aprenda a criar apps para IOS e Android' },
@@ -19,6 +19,11 @@ const HomeScreen = () => {
         renderItem={({ item }) => (
             <TouchableOpacity
              style={styles.itemContainer}
+             onPress={() => navigation.navigate('Datails', {
+              itemId: item.id,
+              name: item.name,
+              descripion: item.descripion
+             })}
             >
                 <Text style={styles.itemTitle}>{item.name}</Text>
                 <Text style={styles.itemDescription}>{item.descripion}</Text>

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const DatailsScreen = () => {
+const DatailsScreen = ({ route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>📄 Detalhes do Curso</Text>
