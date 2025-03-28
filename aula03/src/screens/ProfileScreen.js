@@ -7,7 +7,7 @@ const ProfileScreen = ({ navigation }) => {
       <Text style={{fontSize: 28, fontWeight: 'bold', marginBottom: 10}}>👤 Meu Perfil</Text>
       <Text>Nome: Edilson Maria</Text>
       <Text>Email: edilson@gmail.com</Text>
-      <button title='Sair' onPress={() => navigation.replace}></button>
+      <button title='Sair' onPress={() => navigation.replace('Login')}></button>
     </View>
   )
 }
