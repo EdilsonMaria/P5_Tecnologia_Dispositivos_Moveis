@@ -3,7 +3,7 @@ import React from 'react'
 
 const DatailsScreen = ({ route }) => {
 
-  const { itemId, name, description} = route.params
+  const { itemId, name, description } = route.params
 
   return (
     <View style={styles.container}>

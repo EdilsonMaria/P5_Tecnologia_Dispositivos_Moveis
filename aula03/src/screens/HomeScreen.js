@@ -4,10 +4,10 @@ import React from 'react'
 const HomeScreen = ({ navigation }) => {
 
     const itens = [
-        { id: '1', name: 'Curso de React Native', descripion: 'Aprenda a criar apps para IOS e Android' },
-        { id: '2', name: 'Curso de Java Spring Boot', descripion: 'Construar apis robusta com Java Sprinc' },
-        { id: '3', name: 'Curso de AWS', descripion: 'Domine os serviço da AWS e obtenha certificação' },
-        { id: '4', name: 'Curso de Python para Daya Science', descripion: 'Analise dados com Pyhton e Pandas' }
+        { id: '1', name: 'Curso de React Native', description: 'Aprenda a criar apps para IOS e Android' },
+        { id: '2', name: 'Curso de Java Spring Boot', description: 'Construar apis robusta com Java Sprinc' },
+        { id: '3', name: 'Curso de AWS', description: 'Domine os serviço da AWS e obtenha certificação' },
+        { id: '4', name: 'Curso de Python para Daya Science', description: 'Analise dados com Pyhton e Pandas' }
     ]
 
   return (
@@ -22,13 +22,14 @@ const HomeScreen = ({ navigation }) => {
              onPress={() => navigation.navigate('Datails', {
               itemId: item.id,
               name: item.name,
-              descripion: item.descripion
+              description: item.description
              })}
             >
                 <Text style={styles.itemTitle}>{item.name}</Text>
-                <Text style={styles.itemDescription}>{item.descripion}</Text>
+                <Text style={styles.itemDescription}>{item.description}</Text>
             </TouchableOpacity>
         )
+        
         }
       />
     </View>
