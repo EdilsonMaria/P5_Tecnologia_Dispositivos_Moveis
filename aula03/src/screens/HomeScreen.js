@@ -1,15 +1,15 @@
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useFocusEffect } from '@react-navigation/native'
 import { getCursos } from '../services/CursoService'
 
 const HomeScreen = ({ navigation }) => {
 
-  const [itens, setitens] = useState([])
+  const [itens, setItens] = useState([])
 
   const carregarCursos = async () => {
     const cursos = await getCursos()
-    setitens(cursos)
+    setItens(cursos)
   }
 
   useFocusEffect(
