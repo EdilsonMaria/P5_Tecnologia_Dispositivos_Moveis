@@ -1,7 +1,7 @@
 import { View, Text, Alert, TextInput, Button, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { doc, getDoc } from 'firebase/firestore'
-import { adicionarCurso, atulaizarCurso } from '../services/CursoService'
+import { adicionarCurso, atualizarCurso } from '../services/CursoService'
 import { db } from '../config/firebaseConfig'
 
 const CursoFormScreen = ({ route, navigation }) => {
@@ -34,11 +34,11 @@ const CursoFormScreen = ({ route, navigation }) => {
 
       try {
         if (editando) {
-          await atulaizarCurso(itemId, { name: nome, description: descricao})
+          await atualizarCurso(itemId, { name: nome, description: descricao })
           Alert.alert('Curso atualizado com sucesso!')
         } else {
           await adicionarCurso({ name: nome, description: descricao })
-          Alert.alert('Curso criado com sucesso!') 
+          Alert.alert('Curso criado com sucesso!')
         }
         navigation.goBack()
       } catch (error) {
@@ -51,31 +51,31 @@ const CursoFormScreen = ({ route, navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>
         {editando ? 'Editar Curso' : 'Adicionar Curso'}
-      </Text>
+        </Text>
 
       <TextInput
-        placeholder="Nome o curso"
+        placeholder="Nome do curso"
         style={styles.input}
         value={nome}
-        onChangeText={setNome}>
-      </TextInput>
+        onChangeText={setNome}
+      />
       <TextInput
-        placeholder="Descrição o curso"
+        placeholder="Descrição do curso"
         style={styles.input}
         value={descricao}
-        onChangeText={setDescricao}>
-      </TextInput>
+        onChangeText={setDescricao}
+      />
 
-      <Button title={editando ? 'Salvar Alteração' : 'Criar Curso'} onPress={handleSalvar}></Button>
+      <Button title={editando ? 'Salvar Alterações' : 'Criar Curso'} onPress={handleSalvar} />
     </View>
   
   )
 }
 
 const styles = StyleSheet.create({
-container: { flex: 1, padding: 20, justifyContent: 'center', backgroundColor: '#f5f5f5' },
-title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
-input: { borderBottomWidth: 1, marginBottom: 20, padding: 8 },
-})
+    container: { flex: 1, padding: 20, justifyContent: 'center', backgroundColor: '#f5f5f5' },
+    title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
+    input: { borderBottomWidth: 1, marginBottom: 20, padding: 8 },
+  })
 
 export default CursoFormScreen
