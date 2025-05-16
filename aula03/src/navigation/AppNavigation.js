@@ -6,6 +6,7 @@ import HomeScreen from '../screens/HomeScreen'
 import DatailsScreen from '../screens/DatailsScreen'
 import LoginScreen from '../screens/LoginScreen'
 import ProfileScreen from '../screens/ProfileScreen'
+import CursoFormScreen from '../screens/CursoFormScreen'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -33,6 +34,7 @@ const AppNavigation = () => {
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}></Stack.Screen>
         <Stack.Screen name="Main" component={MainTabs} options={{headerShown: false}}></Stack.Screen>
         <Stack.Screen name="Datails" component={DatailsScreen}></Stack.Screen>
+        <Stack.Screen name="CursoForm" component={CursoFormScreen}></Stack.Screen>
     </Stack.Navigator>
   )
 }
