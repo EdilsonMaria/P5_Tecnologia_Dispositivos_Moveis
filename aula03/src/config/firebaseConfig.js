@@ -1,7 +1,7 @@
-import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"
-import { getAuth } from "firebase/auth"
-import {
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
+import { 
   API_KEY,
   AUTH_DOMAIN,
   PROJECT_ID,

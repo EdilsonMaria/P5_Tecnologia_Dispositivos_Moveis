@@ -4,7 +4,7 @@ import { auth } from '../config/firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 
-const RegisterScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation })=> {
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
@@ -18,7 +18,7 @@ const RegisterScreen = ({ navigation }) => {
         } catch (error) {
             console.error('Erro ao registrar: ', error)
             Alert.alert('Erro', error.message)
-        }   
+        }
     }
 
   return (
@@ -30,22 +30,22 @@ const RegisterScreen = ({ navigation }) => {
         style={styles.input}
         value={email}
         onChangeText={setEmail}
-        />
+      />
 
       <TextInput
         placeholder="Senha"
         style={styles.input}
-        secureTesxtEntry
+        secureTextEntry
         value={senha}
         onChangeText={setSenha}
-        />
+      />
 
         <Button title="Cadastrar" onPress={handleRegister} />
         <Button title="Voltar para Login" onPress={() => navigation.goBack()} />
+
     </View>
   )
 }
-
 
 const styles = StyleSheet.create({
     container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },

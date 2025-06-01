@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
     itemTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 10 },
     itemDescription: { fontSize: 16, color: '#555', textAlign: 'center' },
     itemId: { fontSize: 14, color: '#888', marginTop: 10 },
-})
+  })
 
 export default DatailsScreen

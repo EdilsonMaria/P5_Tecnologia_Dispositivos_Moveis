@@ -1,15 +1,18 @@
 import { View, Text, Alert, TextInput, Button, StyleSheet } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import { doc, getDoc } from 'firebase/firestore'
+import React, { useContext, useEffect, useState } from 'react'
+import { getDoc, doc } from 'firebase/firestore'
 import { adicionarCurso, atualizarCurso } from '../services/CursoService'
 import { db } from '../config/firebaseConfig'
+import { AuthContext } from '../context/AuthContext'
 
-const CursoFormScreen = ({ route, navigation }) => {
+const CursoFormScreen = ({ route, navigation  }) => {
 
     const itemId = route.params?.itemId
     const [nome, setNome] = useState("")
     const [descricao, setDescricao] = useState("")
     const [editando, setEditando] = useState(false)
+
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
         if (itemId) {
@@ -43,7 +46,6 @@ const CursoFormScreen = ({ route, navigation }) => {
         navigation.goBack()
       } catch (error) {
         Alert.alert('Erro', 'Algo deu errado ao salvar!')
-
       }
     }
 
@@ -59,6 +61,7 @@ const CursoFormScreen = ({ route, navigation }) => {
         value={nome}
         onChangeText={setNome}
       />
+
       <TextInput
         placeholder="Descrição do curso"
         style={styles.input}
@@ -68,7 +71,6 @@ const CursoFormScreen = ({ route, navigation }) => {
 
       <Button title={editando ? 'Salvar Alterações' : 'Criar Curso'} onPress={handleSalvar} />
     </View>
-  
   )
 }
 
@@ -78,4 +80,5 @@ const styles = StyleSheet.create({
     input: { borderBottomWidth: 1, marginBottom: 20, padding: 8 },
   })
 
+  
 export default CursoFormScreen
