@@ -40,7 +40,7 @@ const CursoFormScreen = ({ route, navigation  }) => {
           await atualizarCurso(itemId, { name: nome, description: descricao })
           Alert.alert('Curso atualizado com sucesso!')
         } else {
-          await adicionarCurso({ name: nome, description: descricao })
+          await adicionarCurso({ name: nome, description: descricao }, user.uid)
           Alert.alert('Curso criado com sucesso!')
         }
         navigation.goBack()

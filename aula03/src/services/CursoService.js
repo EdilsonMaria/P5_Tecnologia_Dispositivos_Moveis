@@ -14,10 +14,10 @@ export const getCursos = async (userId) => {
 export const adicionarCurso =  async (curso, userId) => {
     const docRef = await addDoc(cursosRef,
         {
-            ...curso, 
+            ...curso,
             userId
         }
-    )
+     )
     return docRef.id
 }
 

@@ -13,7 +13,7 @@ const RegisterScreen = ({ navigation })=> {
         try {
             console.log("Iniciando registro...")
             await createUserWithEmailAndPassword(auth, email, senha)
-            Alert.alert('Sucesso', 'Conta criada com sucesso!')
+            Alert.alert('Sucesso', 'Conta criado com sucesso!')
             navigation.replace('Main')
         } catch (error) {
             console.error('Erro ao registrar: ', error)
@@ -41,7 +41,7 @@ const RegisterScreen = ({ navigation })=> {
       />
 
         <Button title="Cadastrar" onPress={handleRegister} />
-        <Button title="Voltar para Login" onPress={() => navigation.goBack()} />
+        <Button title="Voltar para o Login" onPress={() => navigation.goBack()} />
 
     </View>
   )

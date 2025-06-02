@@ -10,7 +10,7 @@ const LoginScreen = ({ navigation }) => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [user] = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   const handleLogin = async () => {
     try {
@@ -43,7 +43,7 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={setPassword}
       />
 
-      <Button title="Entrar" onPress={() => navigation.replace(handleLogin)} />
+      <Button title="Entrar" onPress={handleLogin} />
 
       <Text style={styles.orText}>Ainda não tem conta?</Text>
       <Button title='Cadastre-se' onPress={() => navigation.navigate('Register')} />
@@ -52,14 +52,14 @@ const LoginScreen = ({ navigation }) => {
 
       {/* Botão do Google */}
       <TouchableOpacity style={styles.socialButton}>
-        <AntDesign name="google" size={24} color="white"></AntDesign>
+        <AntDesign name="google" size={24} color="white" />
         <Text style={styles.socialText}>Entrar com Google</Text>
       </TouchableOpacity>
 
-      {/* Botão do GitHub */}
+      {/* Botão do Github */}
       <TouchableOpacity style={[styles.socialButton, styles.githubButton]}>
-        <Ionicons name="logo-github" size={24} color="white"></Ionicons>
-        <Text style={styles.socialText}>Entrar com GitHub</Text>
+        <Ionicons name="logo-github" size={24} color="white" />
+        <Text style={styles.socialText}>Entre com o github</Text>
       </TouchableOpacity>
     </View>
   )
