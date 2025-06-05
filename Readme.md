@@ -43,8 +43,8 @@ O projeto também faz uso de bibliotecas como React Navigation, para navegação
 │   │   ├── DetailsScreen.js    # Tela de detalhes do curso  
 │   │   ├── CursoFormScreen.js  # Tela de cadastro/edição de cursos  
 │   │   └── ProfileScreen.js    # Tela de perfil do usuário  
-│   ├── services/                
-│   │   └── CursoService.js     # Serviço para operações de cursos 
+│   └── services/                
+│       └── CursoService.js     # Serviço para operações de cursos 
 ├── App.js                      # Arquivo principal do aplicativo  
 ├── index.js                    # Ponto de entrada do React Native   
 ├── package.json                # Gerenciamento de dependências e scripts  
