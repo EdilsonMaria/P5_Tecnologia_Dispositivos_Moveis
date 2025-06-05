@@ -11,25 +11,45 @@ A disciplina de **Dispositivos Móveis** tem como objetivo ensinar o desenvolvim
 - Gerenciamento de estado
 - Armazenamento local
 
-## 🚀 Tecnologias Utilizadas
-- **React Native**
-- **Expo** (quando aplicável)
-- **TypeScript** (opcional)
-- **React Navigation**
-- **Axios** (para consumo de APIs)
+## 🛠️ Descrição do Projeto da Aula03
+Este projeto consiste no desenvolvimento de um aplicativo mobile, compatível com iOS e Android, utilizando as tecnologias React Native e Expo, que facilitam a criação de aplicativos de forma rápida e eficiente.
 
-## 📂 Estrutura do Repositório
+O aplicativo permite que usuários realizem o cadastro e login seguro, utilizando o serviço de autenticação do Firebase. Além disso, conta com uma funcionalidade para cadastrar, listar e armazenar cursos, onde os dados são salvos e sincronizados em tempo real no Firebase Database (Cloud Firestore).
+
+O projeto também faz uso de bibliotecas como React Navigation, para navegação entre as telas, e integra práticas modernas de desenvolvimento mobile, priorizando uma interface simples, intuitiva e responsiva.
+
+## 🚀 Tecnologias Utilizadas
+- **React Native** Framework para criar aplicativos móveis nativos usando JavaScript e React.
+- **Expo** Plataforma que facilita o desenvolvimento, build e deploy de apps em React Native.
+- **Firebase** Backend na nuvem com serviços como autenticação, banco de dados e hospedagem.
+- **Firebase Database** Banco de dados em tempo real na nuvem, que armazena e sincroniza dados entre os usuários e dispositivos instantaneamente.
+- **React Navigation** Biblioteca de navegação entre telas em aplicativos React Native.
+- **Authenticator** Ferramenta para autenticação de usuários, geralmente vinculada a serviços como AWS Amplify ou Firebase.
+
+## 📂 Estrutura do Repositório da Aula03
 ```
-/
-├── src/
-│   ├── components/    # Componentes reutilizáveis
-│   ├── screens/       # Telas do aplicativo
-│   ├── services/      # Serviços como chamadas de API
-│   ├── assets/        # Imagens, ícones e fontes
-│   ├── App.js         # Arquivo principal do app
-│   ├── index.js       # Ponto de entrada do React Native
-├── package.json       # Dependências e scripts
-├── README.md          # Documentação do repositório
+/  
+├── src/  
+│   ├── config/                  
+│   │   └── firebaseConfig.js   # Configuração do Firebase Database 
+│   ├── context/                
+│   │   └── AuthContext.js      # Contexto de Firebase Autenticação  
+│   ├── navigation/              
+│   │   └── AppNavigation.js    # Definição das rotas de navegação  
+│   ├── screens/                 
+│   │   ├── LoginScreen.js      # Tela de login  
+│   │   ├── RegisterScreen.js   # Tela de cadastro  
+│   │   ├── HomeScreen.js       # Tela inicial  
+│   │   ├── DetailsScreen.js    # Tela de detalhes do curso  
+│   │   ├── CursoFormScreen.js  # Tela de cadastro/edição de cursos  
+│   │   └── ProfileScreen.js    # Tela de perfil do usuário  
+│   ├── services/                
+│   │   └── CursoService.js     # Serviço para operações de cursos 
+├── App.js                      # Arquivo principal do aplicativo  
+├── index.js                    # Ponto de entrada do React Native   
+├── package.json                # Gerenciamento de dependências e scripts  
+├── README.md                   # Documentação do projeto  
+
 ```
 
 ## 📦 Como Executar o Projeto
