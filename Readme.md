@@ -92,9 +92,9 @@ O projeto também faz uso de bibliotecas como React Navigation, para navegação
       - Mostra alerta com o erro (email inválido, senha fraca, etc.).
   - Botão **“Voltar para o Login”** para retornar à tela de login.
   
-  ---
-  
-  ### 🏠 **HomeScreen.js — Tela Inicial (Lista de Cursos)**
+---
+
+### 🏠 **HomeScreen.js — Tela Inicial (Lista de Cursos)**
 
 - **Funcionalidade principal:** Listagem, adição e exclusão de cursos.
 - **O que faz:**
@@ -112,13 +112,11 @@ O projeto também faz uso de bibliotecas como React Navigation, para navegação
 - **Funcionalidade principal:** Exibir detalhes de um curso específico.
 - **O que faz:**
   - Recebe os dados via **`route.params`**:
-    - `itemId` (ID do documento no Firestore)
     - `name` (nome)
     - `description` (descrição)
   - Mostra:
     - **Nome do curso**
     - **Descrição**
-    - **ID no Firestore** (para referência técnica)
 
 ---
 
