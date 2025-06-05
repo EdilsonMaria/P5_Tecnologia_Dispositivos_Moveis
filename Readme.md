@@ -51,23 +51,188 @@ O projeto também faz uso de bibliotecas como React Navigation, para navegação
 ├── README.md                   # Documentação do projeto  
 
 ```
+## 🔥 Funcionalidades Principais
+
+- 🔐 **Autenticação de Usuários (Login, Cadastro e Logout)**
+- 🏠 **Listagem de Cursos**
+- ➕ **Adição e Edição de Cursos**
+- 🗑️ **Exclusão de Cursos**
+- 📄 **Visualização de Detalhes do Curso**
+- 👤 **Perfil do Usuário**
+
+---
+
+## 🖥️ Telas do Aplicativo
+
+### 🔐 **LoginScreen.js — Tela de Login**
+
+- **Funcionalidade principal:** Autenticação de usuários com Firebase.
+- **O que faz:**
+  - Permite que o usuário insira **email** e **senha**.
+  - Ao clicar em **"Entrar"**, executa `handleLogin()`:
+    - Faz autenticação via `signInWithEmailAndPassword` do Firebase.
+    - Se correto, navega para a tela **Main** (Home e Perfil).
+    - Se incorreto, exibe alerta de erro.
+  - Opção para navegar para a tela de cadastro (**"Cadastre-se"**).
+  - **Botões sociais (Google e GitHub)** são apenas visuais.
+
+---
+
+### 🏠 **HomeScreen.js — Tela Inicial (Lista de Cursos)**
+
+- **Funcionalidade principal:** Listagem, adição e exclusão de cursos.
+- **O que faz:**
+  - Ao abrir, carrega os cursos cadastrados no Firestore vinculados ao usuário logado (`user.uid`).
+  - Exibe os cursos usando uma **FlatList** com:
+    - **Nome e descrição** do curso.
+    - Clique no item leva para a tela de detalhes (**DatailsScreen**).
+    - Botão de lixeira 🗑️ permite excluir o curso (com confirmação).
+  - Botão **"Adicionar Curso"** leva para a tela **CursoFormScreen**.
+
+---
+
+### 📄 **DatailsScreen.js — Tela de Detalhes do Curso**
+
+- **Funcionalidade principal:** Exibir detalhes de um curso específico.
+- **O que faz:**
+  - Recebe os dados via **`route.params`**:
+    - `itemId` (ID do documento no Firestore)
+    - `name` (nome)
+    - `description` (descrição)
+  - Mostra:
+    - **Nome do curso**
+    - **Descrição**
+    - **ID no Firestore** (para referência técnica)
+
+---
+
+### 📝 **CursoFormScreen.js — Tela de Adição/Edição de Curso**
+
+- **Funcionalidade principal:** Criar ou editar um curso.
+- **O que faz:**
+  - **Modo Edição:** Se recebeu `itemId` via parâmetro:
+    - Busca os dados do curso no Firestore.
+    - Preenche os campos do formulário.
+    - Salva atualizando o curso com `atualizarCurso()`.
+  - **Modo Criação:** Se não recebeu `itemId`:
+    - Cria um novo curso no Firestore com `adicionarCurso()`.
+  - Valida se os campos estão preenchidos.
+  - Exibe alertas de sucesso ou erro.
+
+---
+
+### 👤 **ProfileScreen.js — Tela de Perfil**
+
+- **Funcionalidade principal:** Exibir informações do usuário e logout.
+- **O que faz:**
+  - Mostra:
+    - Título **“👤 Meu Perfil”**.
+    - Email do usuário logado.
+  - Botão **“Sair”**:
+    - Executa `handleLogout()`.
+    - Faz logout no Firebase e retorna para a tela **Login** (`navigation.replace('Login')`).
+
+---
+
+### 📝 **RegisterScreen.js — Tela de Cadastro**
+
+- **Funcionalidade principal:** Permite que novos usuários criem uma conta.
+- **O que faz:**
+  - Inputs para **email** e **senha**.
+  - Botão **“Cadastrar”**:
+    - Cria um novo usuário via `createUserWithEmailAndPassword` do Firebase.
+    - Se bem-sucedido:
+      - Exibe alerta de sucesso.
+      - Redireciona para a tela **Main**.
+    - Se falhar:
+      - Mostra alerta com o erro (email inválido, senha fraca, etc.).
+  - Botão **“Voltar para o Login”** para retornar à tela de login.
+
+---
+
+## 🔗 Relação entre as Telas
+
+- **Login → Main (Home + Profile)** após autenticação bem-sucedida.
+- Dentro de **Main**:
+  - Aba **Home**:
+    - Acesso à tela de **Detalhes do Curso (Datails)**.
+    - Acesso à tela de **Formulário (CursoForm)** para adicionar ou editar cursos.
+  - Aba **Profile**:
+    - Visualiza email e faz logout.
+- **Register → Main** após cadastro bem-sucedido ou **volta para Login**.
+
+**Fluxo de navegação simplificado:**
+
+```
+Login → Main (Tabs: Home | Profile)
+ ↳ Home → Detalhes (Datails)
+ ↳ Home → CursoForm (Adicionar/Editar)
+ ↳ Profile → Logout → Login
+Register → Main ou → Login
+```
+
+---
+
+## 🔐 Integração com Firebase Authentication
+
+- Usado para:
+  - **Login**
+  - **Cadastro**
+  - **Logout**
+- Métodos utilizados:
+  - `signInWithEmailAndPassword()`
+  - `createUserWithEmailAndPassword()`
+  - `signOut()`
+- Garante que cada usuário só veja seus próprios dados (cursos).
+
+---
+
+## 💾 Integração com Firebase Firestore (Database)
+
+- Cada usuário possui uma coleção de cursos associada ao seu `user.uid`.
+- Operações realizadas:
+  - **Listar Cursos:** Função `getCursos()`.
+  - **Adicionar Curso:** Função `adicionarCurso()`.
+  - **Editar Curso:** Função `atualizarCurso()`.
+  - **Deletar Curso:** Função `deletarCurso()`.
+
+---
+
+## 📦 Estrutura de Navegação (Baseada em `AppNavigation.js`)
+
+- **Stack Navigator:**
+  - `Login`
+  - `Register`
+  - `Main` (Tabs)
+  - `Datails`
+  - `CursoForm`
+- **Tab Navigator dentro de Main:**
+  - `Home`
+  - `Profile`
+
+---
 
 ## 📦 Como Executar o Projeto
 1. Clone o repositório:
    ```sh
    git clone https://github.com/EdilsonMaria/P5_Tecnologia_Dispositivos_Moveis
    ```
-2. Acesse o diretório do projeto:
-   ```sh
-   cd dispositivos-moveis-react-native
-   ```
-3. Instale as dependências:
-   ```sh
+2. Instale as dependências:
+   ```bash
    npm install
+   # ou
+   yarn install
    ```
+
+3. Configure o Firebase:
+   - Crie um projeto no [Firebase](https://console.firebase.google.com/).
+   - Ative **Authentication (Email/Senha)**.
+   - Crie um **Firestore Database**.
+   - Crie um arquivo `.env` ou `firebaseConfig.js` com suas credenciais.
+
 4. Execute o projeto:
-   ```sh
-   npm start
+   ```bash
+   npx expo start
    ```
 
 ## 📖 Referências
@@ -91,5 +256,3 @@ O projeto também faz uso de bibliotecas como React Navigation, para navegação
 ![Exercício 1](img/aula2_exercicio1.jpeg)
 
 ---
-
-## Aula03
