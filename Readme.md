@@ -78,7 +78,23 @@ O projeto também faz uso de bibliotecas como React Navigation, para navegação
 
 ---
 
-### 🏠 **HomeScreen.js — Tela Inicial (Lista de Cursos)**
+### 📝 **RegisterScreen.js — Tela de Cadastro**
+
+- **Funcionalidade principal:** Permite que novos usuários criem uma conta.
+- **O que faz:**
+  - Inputs para **email** e **senha**.
+  - Botão **“Cadastrar”**:
+    - Cria um novo usuário via `createUserWithEmailAndPassword` do Firebase.
+    - Se bem-sucedido:
+      - Exibe alerta de sucesso.
+      - Redireciona para a tela **Main**.
+    - Se falhar:
+      - Mostra alerta com o erro (email inválido, senha fraca, etc.).
+  - Botão **“Voltar para o Login”** para retornar à tela de login.
+  
+  ---
+  
+  ### 🏠 **HomeScreen.js — Tela Inicial (Lista de Cursos)**
 
 - **Funcionalidade principal:** Listagem, adição e exclusão de cursos.
 - **O que faz:**
@@ -132,21 +148,6 @@ O projeto também faz uso de bibliotecas como React Navigation, para navegação
     - Executa `handleLogout()`.
     - Faz logout no Firebase e retorna para a tela **Login** (`navigation.replace('Login')`).
 
----
-
-### 📝 **RegisterScreen.js — Tela de Cadastro**
-
-- **Funcionalidade principal:** Permite que novos usuários criem uma conta.
-- **O que faz:**
-  - Inputs para **email** e **senha**.
-  - Botão **“Cadastrar”**:
-    - Cria um novo usuário via `createUserWithEmailAndPassword` do Firebase.
-    - Se bem-sucedido:
-      - Exibe alerta de sucesso.
-      - Redireciona para a tela **Main**.
-    - Se falhar:
-      - Mostra alerta com o erro (email inválido, senha fraca, etc.).
-  - Botão **“Voltar para o Login”** para retornar à tela de login.
 
 ---
 
